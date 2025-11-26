@@ -5,32 +5,25 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private Transform groundCheck;     // Empty child at the bottom of the ball
-    [SerializeField] private LayerMask groundMask;      // Set to your floor/ground layers
+    [SerializeField] private Transform groundCheck;     // Empty child at bottom of ball
+    [SerializeField] private LayerMask groundMask;      // Floor / ground layers
 
     [Header("Forward Motion")]
-    [Tooltip("Constant forward acceleration (Z).")]
     [SerializeField] private float forwardForce = 2000f;
 
-    [Header("Side Motion (Gyro)")]
-    [Tooltip("How strongly tilt affects sideways force.")]
+    [Header("Side Motion (Tilt)")]
     [SerializeField] private float gyroSensitivity = 700f;
-    [Tooltip("Ignore small hand jitter.")]
     [SerializeField] private float tiltDeadZone = 0.05f;
-    [Tooltip("Max absolute tilt read from accelerometer X.")]
     [SerializeField] private float maxTiltAbs = 0.75f;
-    [Tooltip("Max sideways velocity to keep control tight.")]
     [SerializeField] private float maxSideSpeed = 10f;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 7.5f;
-    [Tooltip("Radius for ground check sphere.")]
     [SerializeField] private float groundCheckRadius = 0.2f;
 
     [Header("Fail Conditions")]
     [SerializeField] private float fallYThreshold = -1f;
 
-    // cache
     private bool isGrounded;
 
     private void Reset()
@@ -50,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         // 1) Always move forward (Z)
         rb.AddForce(0f, 0f, forwardForce * Time.fixedDeltaTime, ForceMode.Force);
 
-        // 2) Sideways via gyro (accelerometer.x)
+        // 2) Sideways via accelerometer
         float tiltX = Input.acceleration.x;                     // -1 (left) .. +1 (right)
         tiltX = Mathf.Clamp(tiltX, -maxTiltAbs, maxTiltAbs);
 
@@ -64,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(sideForce, 0f, 0f, ForceMode.VelocityChange);
         }
 
-        // Clamp sideways velocity so the ball stays controllable.
+        // Clamp sideways velocity
         Vector3 v = rb.linearVelocity;
         v.x = Mathf.Clamp(v.x, -maxSideSpeed, maxSideSpeed);
         rb.linearVelocity = v;
@@ -87,17 +80,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Tap-to-jump (also supports mouse click in Editor)
+        // Tap-to-jump (touch or mouse)
         if (IsJumpPressed() && isGrounded)
         {
             Vector3 vel = rb.linearVelocity;
-            if (vel.y < 0f) vel.y = 0f; // nicer, snappier jump if descending
+            if (vel.y < 0f) vel.y = 0f;
             rb.linearVelocity = vel;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
 
 #if UNITY_EDITOR
-        // Editor fallback controls (optional)
+        // Optional Editor fallback controls
         if (Input.GetKey(KeyCode.D))
             rb.AddForce(gyroSensitivity * 0.5f * Time.deltaTime, 0f, 0f, ForceMode.VelocityChange);
         if (Input.GetKey(KeyCode.A))
@@ -109,14 +102,17 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsJumpPressed()
     {
-        // Single-finger tap anywhere on screen
+        // Touch jump
         if (Input.touchCount > 0)
         {
             for (int i = 0; i < Input.touchCount; i++)
+            {
                 if (Input.GetTouch(i).phase == TouchPhase.Began)
                     return true;
+            }
         }
-        // Mouse click support (useful for Editor)
+
+        // Mouse (Editor / PC)
         return Input.GetMouseButtonDown(0);
     }
 
