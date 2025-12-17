@@ -14,7 +14,7 @@ public class SegmentSpawner : MonoBehaviour
 
     [Header("Spawn Logic")]
     [Tooltip("How many segments to spawn ahead at the start.")]
-    [SerializeField] private int initialSegments = 5;
+    [SerializeField] private int initialSegments = 10;
 
     [Tooltip("We will always try to keep at least this much distance (in world units) of track in front of the player.")]
     [SerializeField] private float distanceAhead = 40f;
