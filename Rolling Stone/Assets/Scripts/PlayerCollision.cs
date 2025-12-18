@@ -1,19 +1,40 @@
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour {
+public class PlayerCollision : MonoBehaviour
+{
+    [Header("Movement Scripts")]
+    [SerializeField] PlayerMovementGyro gyroMovement;
+    [SerializeField] PlayerMovementKeyboard keyboardMovement;
 
-	public PlayerMovement movement;     // A reference to our PlayerMovement script
+    GameManager gameManager;
 
-	// This function runs when we hit another object.
-	// We get information about the collision and call it "collisionInfo".
-	void OnCollisionEnter (Collision collisionInfo)
-	{
-		// We check if the object we collided with has a tag called "Obstacle".
-		if (collisionInfo.collider.tag == "Obstacle")
-		{
-			movement.enabled = false;   // Disable the players movement.
-			FindObjectOfType<GameManager>().EndGame();
-		}
-	}
+    void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
 
+        if (!gyroMovement)
+            gyroMovement = GetComponent<PlayerMovementGyro>();
+
+        if (!keyboardMovement)
+            keyboardMovement = GetComponent<PlayerMovementKeyboard>();
+    }
+
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+        if (!collisionInfo.collider.CompareTag("Obstacle"))
+            return;
+
+        if (gyroMovement)
+            gyroMovement.enabled = false;
+
+        if (keyboardMovement)
+            keyboardMovement.enabled = false;
+
+        var rb = GetComponent<Rigidbody>();
+        if (rb)
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+
+        if (gameManager)
+            gameManager.EndGame();
+    }
 }

@@ -1,131 +1,76 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 
-public class TileLevelGen3D : MonoBehaviour
+public class ChunkScroller3D : MonoBehaviour
 {
-    [Header("Scroll")]
-    public float scrollSpeed = 20f;
+    [Header("Chunk Prefabs (variants with obstacles baked in)")]
+    public GameObject[] chunkPrefabs;   // your ground+obstacle prefabs
 
     [Header("Chunk Settings")]
-    public GameObject chunkPrefab;
-    public float chunkWidth = 500f;   // ← IMPORTANT
+    public float chunkLength = 50f;     // size of each chunk along Z
+    public int initialChunkCount = 5;   // how many chunks in the loop
 
-    [Header("Prefabs")]
-    public GameObject groundPrefab;
-    public GameObject obstaclePrefab;
+    [Header("Scroll Settings")]
+    public float scrollSpeed = 20f;     // how fast the world moves toward the player
 
-    [Range(0f, 1f)]
-    public float obstacleProbability = 0.25f;
+    [Header("Positioning")]
+    public float chunkX = 0f;           // centered under player (left/right)
+    public float chunkY = 0f;           // vertical offset (road height)
 
-    [Header("Ground Height")]
-    public float groundY = -0.43f;
+    // Threshold for recycling (how far behind the player a chunk must go)
+    public float recycleZ = -60f;       // tweak based on camera/player position
 
-    [Header("Pool Settings")]
-    public int initialPoolSize = 5;
-    public int maxPoolSize = 10;
-
-    private ObjectPool<GameObject> pool;
-    private List<GameObject> activeChunks = new();
-
-    private float nextSpawnX = 0f;
-    private Camera cam;
-    private float screenLeft;
+    private readonly List<GameObject> _chunks = new List<GameObject>();
 
     void Start()
     {
-        cam = Camera.main;
-
-        CalculateBounds();
-
-        pool = new ObjectPool<GameObject>(
-            CreateChunk,
-            ActivateChunk,
-            DeactivateChunk,
-            DestroyChunk,
-            false,
-            initialPoolSize,
-            maxPoolSize
-        );
-
-        // Fill screen with initial chunks
-        while (nextSpawnX < screenLeft + cam.orthographicSize * cam.aspect * 2f + chunkWidth)
+        if (chunkPrefabs == null || chunkPrefabs.Length == 0)
         {
-            pool.Get();
+            Debug.LogError("ChunkScroller3D: No chunk prefabs assigned.");
+            return;
+        }
+
+        // Spawn an initial strip of chunks in front of the player along +Z
+        float zPos = 0f;
+        for (int i = 0; i < initialChunkCount; i++)
+        {
+            GameObject prefab = chunkPrefabs[Random.Range(0, chunkPrefabs.Length)];
+            GameObject chunk = Instantiate(prefab, transform);
+
+            chunk.transform.position = new Vector3(chunkX, chunkY, zPos);
+
+            _chunks.Add(chunk);
+            zPos += chunkLength;
         }
     }
 
     void Update()
     {
-        float move = scrollSpeed * Time.deltaTime;
+        if (_chunks.Count == 0) return;
 
-        // Move chunks
-        foreach (var chunk in activeChunks)
+        float delta = scrollSpeed * Time.deltaTime;
+        Vector3 move = Vector3.back * delta;   // (0, 0, -1) -> toward player
+
+        // Move all chunks toward the player
+        for (int i = 0; i < _chunks.Count; i++)
         {
-            chunk.transform.position += Vector3.left * move;
+            _chunks[i].transform.position += move;
         }
 
-        // Release left chunk
-        if (activeChunks.Count > 0)
+        // If the first chunk has moved behind the recycle point, move it to the front
+        GameObject first = _chunks[0];
+        if (first.transform.position.z < recycleZ)
         {
-            var first = activeChunks[0];
+            GameObject last = _chunks[_chunks.Count - 1];
 
-            if (first.transform.position.x + chunkWidth < screenLeft)
-            {
-                activeChunks.RemoveAt(0);
-                pool.Release(first);
-            }
+            // New Z position directly after the last chunk
+            float newZ = last.transform.position.z + chunkLength;
+
+            first.transform.position = new Vector3(chunkX, chunkY, newZ);
+
+            // Move it to the end of the list
+            _chunks.RemoveAt(0);
+            _chunks.Add(first);
         }
-
-        // Spawn new chunk if needed
-        float rightEnd = (activeChunks.Count == 0) ?
-            nextSpawnX : activeChunks[^1].transform.position.x + chunkWidth;
-
-        if (rightEnd < cam.transform.position.x + cam.orthographicSize * cam.aspect + chunkWidth)
-        {
-            pool.Get();
-        }
-    }
-
-    void CalculateBounds()
-    {
-        float width = cam.orthographicSize * cam.aspect * 2f;
-        screenLeft = cam.transform.position.x - width / 2f;
-    }
-
-    GameObject CreateChunk()
-    {
-        GameObject obj = Instantiate(chunkPrefab);
-        obj.SetActive(false);
-        return obj;
-    }
-
-    void ActivateChunk(GameObject chunk)
-    {
-        chunk.SetActive(true);
-        chunk.transform.position = new Vector3(nextSpawnX, 0, 0);
-        nextSpawnX += chunkWidth;
-
-        var builder = chunk.GetComponent<Chunk3D>();
-        builder.chunkWidth = chunkWidth;
-        builder.groundY = groundY;
-        builder.obstacleProbability = obstacleProbability;
-        builder.groundPrefab = groundPrefab;
-        builder.obstaclePrefab = obstaclePrefab;
-
-        builder.Build();
-
-        activeChunks.Add(chunk);
-    }
-
-    void DeactivateChunk(GameObject chunk)
-    {
-        chunk.SetActive(false);
-        activeChunks.Remove(chunk);
-    }
-
-    void DestroyChunk(GameObject chunk)
-    {
-        Destroy(chunk);
     }
 }

@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,7 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool gameHasEnded = false;
     [SerializeField] private bool isPaused = false;
 
-    // 🔓 Public read-only pause state for all other scripts
     public bool IsPaused => isPaused;
 
     [Header("Timing")]
@@ -26,9 +27,16 @@ public class GameManager : MonoBehaviour
     [Tooltip("HUD shown during gameplay (score, pause button, etc.).")]
     public GameObject inGameHUD;
 
+    [Header("Final Distance")]
+    [Tooltip("Player transform used to read final distance (Z position).")]
+    public Transform player;
+
+    [Tooltip("UI Text on the Game Over screen that shows the final distance.")]
+    public TextMeshProUGUI finalDistanceText;
+
     private void Awake()
     {
-        Time.timeScale = 1f;   // ensure normal gameplay speed
+        Time.timeScale = 1f;
         gameHasEnded = false;
         isPaused = false;
 
@@ -63,6 +71,14 @@ public class GameManager : MonoBehaviour
 
     private void ShowGameOverScreen()
     {
+        // Calculate and display final distance
+        if (player != null && finalDistanceText != null)
+        {
+            float finalDistance = player.position.z;
+            finalDistanceText.text = $"Final Distance {finalDistance:0} m";
+        }
+
+
         if (inGameHUD) inGameHUD.SetActive(false);
         if (gameOverUI) gameOverUI.SetActive(true);
 
