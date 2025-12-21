@@ -1241,9 +1241,9 @@ Transform:
   m_GameObject: {fileID: 630044001}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.63, z: 0.42581}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -1.3, y: 0.63, z: 0.42581}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1264,7 +1264,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
-  forwardForce: 8000
+  forwardForce: 500
   gyroSensitivity: 700
   tiltDeadZone: 0.05
   maxTiltAbs: 0.75
@@ -2028,8 +2028,8 @@ Transform:
   m_GameObject: {fileID: 1108905075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.43, z: 241.69}
-  m_LocalScale: {x: 500, y: 1, z: 20}
+  m_LocalPosition: {x: 0, y: -0.43, z: 108.1}
+  m_LocalScale: {x: 215.7, y: 1, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3185,6 +3185,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2008395892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008395894}
+  - component: {fileID: 2008395893}
+  m_Layer: 0
+  m_Name: SegmentSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2008395893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008395892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aeb1f953a10bf4d9c91db90a9a6140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SegmentSpawner
+  player: {fileID: 630044007}
+  segmentPrefabs:
+  - {fileID: 8735914874294399684, guid: f515bcdd30769fd44a70e63babe64a98, type: 3}
+  - {fileID: 480619033751402184, guid: 586deab25dfa1704699140ee2961230a, type: 3}
+  - {fileID: 2041519073678835285, guid: 6d49c39419d5bd643ab4646668d2ae44, type: 3}
+  - {fileID: 2477713749226724767, guid: b25d3edadf54bb843a165f576a87553e, type: 3}
+  - {fileID: 7365276070640322561, guid: 403cc6e579329c74fa3e1749592717c2, type: 3}
+  - {fileID: 1970914210266985213, guid: 8a9dc5277efeb744e93dc95ec09706d3, type: 3}
+  - {fileID: 1514845806095276288, guid: 3378f5a4768d18648b3d1c8deb5bf951, type: 3}
+  initialSegments: 7
+  distanceAhead: 30
+  recycleDistance: 40
+  buildOnStart: 1
+--- !u!4 &2008395894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008395892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5599976, y: 0, z: 215.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2015476395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,3 +3544,4 @@ SceneRoots:
   - {fileID: 1823340441}
   - {fileID: 764193783}
   - {fileID: 242586994}
+  - {fileID: 2008395894}

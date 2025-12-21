@@ -4,7 +4,7 @@ public class LevelSegment : MonoBehaviour
 {
     [Header("Segment Settings")]
     [Tooltip("How long this segment is along the Z axis.")]
-    public float length = 15f;
+    public float length = 25f;
 
     [Tooltip("Where the previous segment should connect.")]
     public Transform entryPoint;
