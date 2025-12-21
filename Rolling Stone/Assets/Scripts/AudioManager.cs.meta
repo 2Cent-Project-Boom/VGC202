@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5d08d3e6c87213149b536866aaa892a6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - uiClickClip: {fileID: 8300000, guid: 0ca3709a62103034a8aee8d67504262d, type: 3}
+  - mainMenuMusic: {fileID: 8300000, guid: 5f1051c7350e3284a9e2235602848272, type: 3}
+  - gameMusic: {fileID: 8300000, guid: 5e25849f7c11ee042b82cb982eb1361c, type: 3}
+  - jumpClip: {fileID: 8300000, guid: b798af5b5e5ffa143b4baeb7549e42a1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
