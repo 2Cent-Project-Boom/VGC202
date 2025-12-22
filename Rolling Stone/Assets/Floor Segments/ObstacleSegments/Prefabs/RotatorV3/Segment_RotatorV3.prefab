@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 2658160741841839670}
   - component: {fileID: 6076731901095768798}
   - component: {fileID: 7005979854413285641}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 6
+>>>>>>> Chikit
   m_Name: RotatingBar (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -120,7 +124,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7839930816389727502}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +163,11 @@ GameObject:
   - component: {fileID: 2760090125569848899}
   - component: {fileID: 6409757194466363692}
   - component: {fileID: 635915118232159065}
+<<<<<<< HEAD
   m_Layer: 6
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -281,7 +293,11 @@ GameObject:
   - component: {fileID: 5836850119761946441}
   - component: {fileID: 5673338174742403425}
   - component: {fileID: 3475089092344571775}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 6
+>>>>>>> Chikit
   m_Name: RotatingBar
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -389,7 +405,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1961877653536472840}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: ExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,9 +441,15 @@ GameObject:
   m_Component:
   - component: {fileID: 5525597165287363322}
   - component: {fileID: 3271850380360563853}
+<<<<<<< HEAD
   m_Layer: 0
   m_Name: RotatingPivot
   m_TagString: Untagged
+=======
+  m_Layer: 6
+  m_Name: RotatingPivot
+  m_TagString: Obstacle
+>>>>>>> Chikit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -119,6 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &89612335
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +600,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308093189}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Chikit
 --- !u!1 &419008903
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +729,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+<<<<<<< HEAD
 --- !u!1 &488934030
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +974,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> Chikit
 --- !u!1 &563180873
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,7 +988,10 @@ GameObject:
   - component: {fileID: 563180875}
   - component: {fileID: 563180874}
   - component: {fileID: 563180877}
+<<<<<<< HEAD
   - component: {fileID: 563180878}
+=======
+>>>>>>> Chikit
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1016,7 +1025,11 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
+<<<<<<< HEAD
   m_FocalLength: 10.995975
+=======
+  m_FocalLength: 50
+>>>>>>> Chikit
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -1029,9 +1042,15 @@ Camera:
     y: 0
     width: 1
     height: 1
+<<<<<<< HEAD
   near clip plane: 0.01
   far clip plane: 1000
   field of view: 95
+=======
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+>>>>>>> Chikit
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1057,8 +1076,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563180873}
   serializedVersion: 2
+<<<<<<< HEAD
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.72, z: -40.62}
+=======
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -9.6}
+>>>>>>> Chikit
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1108,6 +1132,7 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+<<<<<<< HEAD
 --- !u!114 &563180878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2336,6 +2361,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681553539}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Chikit
 --- !u!1 &1960164576
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,18 +2392,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6aeb1f953a10bf4d9c91db90a9a6140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SegmentSpawner
+<<<<<<< HEAD
   player: {fileID: 579089645}
   segmentPrefabs:
   - {fileID: 480619033751402184, guid: 586deab25dfa1704699140ee2961230a, type: 3}
   - {fileID: 1514845806095276288, guid: 3378f5a4768d18648b3d1c8deb5bf951, type: 3}
+=======
+  player: {fileID: 563180876}
+  segmentPrefabs:
+  - {fileID: 8735914874294399684, guid: f515bcdd30769fd44a70e63babe64a98, type: 3}
+  - {fileID: 480619033751402184, guid: 586deab25dfa1704699140ee2961230a, type: 3}
+>>>>>>> Chikit
   - {fileID: 2041519073678835285, guid: 6d49c39419d5bd643ab4646668d2ae44, type: 3}
   - {fileID: 2477713749226724767, guid: b25d3edadf54bb843a165f576a87553e, type: 3}
   - {fileID: 7365276070640322561, guid: 403cc6e579329c74fa3e1749592717c2, type: 3}
   - {fileID: 1970914210266985213, guid: 8a9dc5277efeb744e93dc95ec09706d3, type: 3}
+<<<<<<< HEAD
   - {fileID: 8735914874294399684, guid: f515bcdd30769fd44a70e63babe64a98, type: 3}
   initialSegments: 20
   distanceAhead: 75
   recycleDistance: 30
+=======
+  - {fileID: 1514845806095276288, guid: 3378f5a4768d18648b3d1c8deb5bf951, type: 3}
+  initialSegments: 20
+  distanceAhead: 30
+  recycleDistance: 40
+>>>>>>> Chikit
   buildOnStart: 1
 --- !u!4 &1960164578
 Transform:
@@ -2393,6 +2434,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &2043764148
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,6 +3183,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea46d71d0e5be7449acb1a767ffd9325, type: 3}
+=======
+>>>>>>> Chikit
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3148,8 +3192,11 @@ SceneRoots:
   - {fileID: 563180876}
   - {fileID: 419008905}
   - {fileID: 1960164578}
+<<<<<<< HEAD
   - {fileID: 780546526783589223}
   - {fileID: 2117136621}
   - {fileID: 532169190}
   - {fileID: 1196337408}
   - {fileID: 2136684373}
+=======
+>>>>>>> Chikit

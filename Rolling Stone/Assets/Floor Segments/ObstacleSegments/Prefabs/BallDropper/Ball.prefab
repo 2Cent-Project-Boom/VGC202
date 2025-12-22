@@ -14,7 +14,11 @@ GameObject:
   - component: {fileID: 999184869698242261}
   - component: {fileID: 8477778285238791722}
   - component: {fileID: 799940230027096958}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 6
+>>>>>>> Chikit
   m_Name: Ball
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

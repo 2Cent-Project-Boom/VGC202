@@ -4,16 +4,25 @@
 TagManager:
   serializedVersion: 3
   tags:
+<<<<<<< HEAD
   - Ground
   - Obstacle
+=======
+  - Obstacle
+  - Ground
+>>>>>>> Chikit
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
+<<<<<<< HEAD
   - Ground
+=======
+  - Obstacle
+>>>>>>> Chikit
   - 
   - 
   - 

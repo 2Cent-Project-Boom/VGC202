@@ -9,7 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9099777572455267238}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +44,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567837662871300513}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: SpawnPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +79,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6296997108972991238}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: SpawnPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +117,11 @@ GameObject:
   - component: {fileID: 480619033751402184}
   m_Layer: 0
   m_Name: Segment_FallingBalls
+<<<<<<< HEAD
   m_TagString: Untagged
+=======
+  m_TagString: Obstacle
+>>>>>>> Chikit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +174,11 @@ GameObject:
   - component: {fileID: 7752471510217994713}
   - component: {fileID: 5190640364789274378}
   - component: {fileID: 5017057388132808072}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: DespawnTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +298,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3575924886104203411}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +333,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3791658409691460378}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: SpawnPoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +435,11 @@ GameObject:
   - component: {fileID: 8352004122913249112}
   - component: {fileID: 6204863226056916339}
   - component: {fileID: 316315283332464016}
+<<<<<<< HEAD
   m_Layer: 6
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -515,7 +547,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2504102667178485643}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: SpawnPoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +582,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 831123961327794698}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 3
+>>>>>>> Chikit
   m_Name: ExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
