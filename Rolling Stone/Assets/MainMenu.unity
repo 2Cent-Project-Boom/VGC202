@@ -494,7 +494,7 @@ MonoBehaviour:
   mainMenuMusic: {fileID: 8300000, guid: 5f1051c7350e3284a9e2235602848272, type: 3}
   gameMusic: {fileID: 8300000, guid: 5e25849f7c11ee042b82cb982eb1361c, type: 3}
   jumpClip: {fileID: 8300000, guid: b798af5b5e5ffa143b4baeb7549e42a1, type: 3}
-  collisionClip: {fileID: 8300000, guid: 500431a5cbaaace4f826e46cdbafe0a4, type: 3}
+  collisionClip: {fileID: 8300000, guid: c17cad423515c234786f4a8c2d20f0e9, type: 3}
   uiVolume: 1
   sfxVolume: 1
   menuMusicVolume: 0.2
