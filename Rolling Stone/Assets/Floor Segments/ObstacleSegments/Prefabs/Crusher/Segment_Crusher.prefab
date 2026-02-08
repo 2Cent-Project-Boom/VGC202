@@ -12,11 +12,8 @@ GameObject:
   - component: {fileID: 2041519073678835285}
   m_Layer: 0
   m_Name: Segment_Crusher
-<<<<<<< HEAD
-  m_TagString: Untagged
-=======
   m_TagString: Obstacle
->>>>>>> Chikit
+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,11 +61,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5979969945503149992}
-<<<<<<< HEAD
-  m_Layer: 0
-=======
   m_Layer: 3
->>>>>>> Chikit
+
   m_Name: ExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,11 +96,8 @@ GameObject:
   - component: {fileID: 4985341524364520707}
   - component: {fileID: 3552023427325157537}
   - component: {fileID: 7307332859552865630}
-<<<<<<< HEAD
-  m_Layer: 6
-=======
   m_Layer: 3
->>>>>>> Chikit
+
   m_Name: floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -214,11 +205,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1045513438972495827}
-<<<<<<< HEAD
-  m_Layer: 0
-=======
   m_Layer: 3
->>>>>>> Chikit
+
   m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,11 +241,8 @@ GameObject:
   - component: {fileID: 682235552501534368}
   - component: {fileID: 1398856162565419308}
   - component: {fileID: 2077773371808246935}
-<<<<<<< HEAD
-  m_Layer: 0
-=======
   m_Layer: 6
->>>>>>> Chikit
+
   m_Name: Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

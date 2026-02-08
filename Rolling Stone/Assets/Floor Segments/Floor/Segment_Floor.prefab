@@ -12,11 +12,8 @@ GameObject:
   - component: {fileID: 5272883268681124281}
   - component: {fileID: 1133128597230646182}
   - component: {fileID: 221717314014619746}
-<<<<<<< HEAD
-  m_Layer: 6
-=======
   m_Layer: 3
->>>>>>> Chikit
+
   m_Name: floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -124,11 +121,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4010895001977919343}
-<<<<<<< HEAD
-  m_Layer: 0
-=======
   m_Layer: 3
->>>>>>> Chikit
+
   m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,11 +153,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7684875179190724758}
-<<<<<<< HEAD
-  m_Layer: 0
-=======
   m_Layer: 3
->>>>>>> Chikit
+
   m_Name: ExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,17 +185,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7696517124465240004}
-<<<<<<< HEAD
-  - component: {fileID: 1514845806095276288}
-  m_Layer: 0
-  m_Name: Segment_Floor
-  m_TagString: Untagged
-=======
   - component: {fileID: 6157444584777128126}
   m_Layer: 3
   m_Name: Segment_Floor
   m_TagString: Ground
->>>>>>> Chikit
+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,11 +212,8 @@ Transform:
   - {fileID: 7684875179190724758}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!114 &1514845806095276288
-=======
---- !u!114 &6157444584777128126
->>>>>>> Chikit
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,10 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73ddbfa904b4604e879b6b4deab7987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSegment
-<<<<<<< HEAD
   length: 15
-=======
-  length: 25
->>>>>>> Chikit
+
   entryPoint: {fileID: 4010895001977919343}
   exitPoint: {fileID: 7684875179190724758}
