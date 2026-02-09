@@ -28,7 +28,7 @@ public class BallJumpInput : MonoBehaviour
 
     private void Update()
     {
-        // Mobile: tap anywhere on screen
+        // Mobile interaction - tap anywhere on screen
         if (useTouchJump)
         {
             if (TouchPressedThisFrame())
@@ -38,7 +38,7 @@ public class BallJumpInput : MonoBehaviour
             }
         }
 
-        // PC testing: Space
+        // quick pc testing - Space
         if (useSpaceJump)
         {
 #if ENABLE_INPUT_SYSTEM
@@ -58,7 +58,7 @@ public class BallJumpInput : MonoBehaviour
         var ts = Touchscreen.current;
         return ts != null && ts.primaryTouch.press.wasPressedThisFrame;
 #else
-        // Legacy fallback
+        // Legacy code
         if (Input.touchCount > 0)
         {
             for (int i = 0; i < Input.touchCount; i++)

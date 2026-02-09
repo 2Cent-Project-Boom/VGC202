@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Value: 0.25
   scatter:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.504
   clamp:
     m_OverrideState: 1
     m_Value: 65472
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
     m_Value: 0
