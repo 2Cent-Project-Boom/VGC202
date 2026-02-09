@@ -158,7 +158,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BallCollision
   motor: {fileID: 8058840004402378107}
   gameManager: {fileID: 0}
-  obstacleTag: Obstacle
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &5631866398112829713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +214,7 @@ MonoBehaviour:
   groundCheck: {fileID: 209800035098515086}
   groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   groundCheckRadius: 1
   forwardForce: 10
   maxForwardSpeedStart: 5
