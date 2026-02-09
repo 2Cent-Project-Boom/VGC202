@@ -1,5 +1,9 @@
 using UnityEngine;
 
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
+
 public class BallJumpInput : MonoBehaviour
 {
     [Header("Jump Input")]
@@ -12,10 +16,6 @@ public class BallJumpInput : MonoBehaviour
 
     private float bufferedUntilTime = -1f;
 
-    /// <summary>
-    /// Returns true once when a jump is queued, then clears the queue.
-    /// Call this from FixedUpdate (BallMotor).
-    /// </summary>
     public bool ConsumeJumpPressed()
     {
         if (Time.time <= bufferedUntilTime)
@@ -28,24 +28,45 @@ public class BallJumpInput : MonoBehaviour
 
     private void Update()
     {
-        // Mobile: tap anywhere on screen
-        if (useTouchJump && Input.touchCount > 0)
+        // Mobile interaction - tap anywhere on screen
+        if (useTouchJump)
         {
-            for (int i = 0; i < Input.touchCount; i++)
+            if (TouchPressedThisFrame())
             {
-                if (Input.GetTouch(i).phase == TouchPhase.Began)
-                {
-                    QueueJump();
-                    return;
-                }
+                QueueJump();
+                return;
             }
         }
 
-        // PC testing: Space only
-        if (useSpaceJump && Input.GetKeyDown(KeyCode.Space))
+        // quick pc testing - Space
+        if (useSpaceJump)
         {
-            QueueJump();
+#if ENABLE_INPUT_SYSTEM
+            var k = Keyboard.current;
+            if (k != null && k.spaceKey.wasPressedThisFrame)
+                QueueJump();
+#else
+            if (Input.GetKeyDown(KeyCode.Space))
+                QueueJump();
+#endif
         }
+    }
+
+    private bool TouchPressedThisFrame()
+    {
+#if ENABLE_INPUT_SYSTEM
+        var ts = Touchscreen.current;
+        return ts != null && ts.primaryTouch.press.wasPressedThisFrame;
+#else
+        // Legacy code
+        if (Input.touchCount > 0)
+        {
+            for (int i = 0; i < Input.touchCount; i++)
+                if (Input.GetTouch(i).phase == TouchPhase.Began)
+                    return true;
+        }
+        return false;
+#endif
     }
 
     private void QueueJump()

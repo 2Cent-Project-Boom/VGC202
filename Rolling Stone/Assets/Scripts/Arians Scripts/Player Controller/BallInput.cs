@@ -1,5 +1,9 @@
 using UnityEngine;
 
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
+
 public class BallInput : MonoBehaviour
 {
     [Header("Tilt (Mobile)")]
@@ -21,6 +25,26 @@ public class BallInput : MonoBehaviour
     private float calibratedZeroX;
     private float smoothedSteer;
 
+#if ENABLE_INPUT_SYSTEM
+    private Accelerometer _accelerometer;
+    private GravitySensor _gravity;
+#endif
+
+    private void OnEnable()
+    {
+#if ENABLE_INPUT_SYSTEM
+        // Sensors are disabled by default in the Input System. Must be enabled explicitly. :contentReference[oaicite:3]{index=3}
+        if (useTilt)
+        {
+            _gravity = GravitySensor.current;
+            _accelerometer = Accelerometer.current;
+
+            if (_gravity != null) InputSystem.EnableDevice(_gravity);
+            if (_accelerometer != null) InputSystem.EnableDevice(_accelerometer);
+        }
+#endif
+    }
+
     private void Start()
     {
         AutoCalibrate();
@@ -28,8 +52,23 @@ public class BallInput : MonoBehaviour
 
     public void AutoCalibrate()
     {
-        // Treat current device holding position as neutral.
-        calibratedZeroX = Input.acceleration.x;
+        calibratedZeroX = ReadTiltX();
+    }
+
+    private float ReadTiltX()
+    {
+#if ENABLE_INPUT_SYSTEM
+        // Prefer gravity if available (more stable for "tilt steering")
+        if (_gravity != null)
+            return _gravity.gravity.ReadValue().x;
+
+        if (_accelerometer != null)
+            return _accelerometer.acceleration.ReadValue().x;
+
+        return 0f;
+#else
+        return Input.acceleration.x;
+#endif
     }
 
     private void Update()
@@ -39,7 +78,7 @@ public class BallInput : MonoBehaviour
         // --- Tilt steer ---
         if (useTilt)
         {
-            float raw = Input.acceleration.x - calibratedZeroX; // relative to neutral
+            float raw = ReadTiltX() - calibratedZeroX; // relative to neutral
             raw = Mathf.Clamp(raw, -tiltMaxAbs, tiltMaxAbs);
 
             float abs = Mathf.Abs(raw);
@@ -57,19 +96,29 @@ public class BallInput : MonoBehaviour
             targetSteer += raw * tiltSensitivity;
         }
 
-        // --- Keyboard steer (arrow keys) ---
+        // --- Keyboard steer (for editor/PC testing) ---
         if (useKeyboard)
         {
             float key = 0f;
+
+#if ENABLE_INPUT_SYSTEM
+            var k = Keyboard.current;
+            if (k != null)
+            {
+                if (k.leftArrowKey.isPressed) key -= 1f;
+                if (k.rightArrowKey.isPressed) key += 1f;
+            }
+#else
             if (Input.GetKey(KeyCode.LeftArrow)) key -= 1f;
             if (Input.GetKey(KeyCode.RightArrow)) key += 1f;
+#endif
 
             targetSteer += key * keyboardSensitivity;
         }
 
         targetSteer = Mathf.Clamp(targetSteer, -1f, 1f);
 
-        // Smooth the steer for mobile stability
+        // Smooth steer for mobile stability
         float lerpT = 1f - Mathf.Exp(-steerSmoothing * Time.deltaTime);
         smoothedSteer = Mathf.Lerp(smoothedSteer, targetSteer, lerpT);
 
