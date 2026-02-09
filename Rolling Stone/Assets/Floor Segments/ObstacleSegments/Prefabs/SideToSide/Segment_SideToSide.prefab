@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1566509060836248038}
   - component: {fileID: 4424449779440690508}
   m_Layer: 6
-
   m_Name: Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -143,7 +142,6 @@ GameObject:
   - component: {fileID: 7151918194491041464}
   - component: {fileID: 4172486641179930933}
   m_Layer: 6
-
   m_Name: Cube (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -272,7 +270,6 @@ GameObject:
   - component: {fileID: 4370751557478405327}
   - component: {fileID: 2965495704822865968}
   m_Layer: 6
-
   m_Name: Cube (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -397,7 +394,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6852719719800787956}
   m_Layer: 3
-
   m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +428,6 @@ GameObject:
   - component: {fileID: 3650562418639410493}
   - component: {fileID: 3639700879507375550}
   m_Layer: 3
-
   m_Name: floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -594,7 +589,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8387518482803399444}
   m_Layer: 3
-
   m_Name: ExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9099777572455267238}
   m_Layer: 3
-
   m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 567837662871300513}
   m_Layer: 3
-
   m_Name: SpawnPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +72,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6296997108972991238}
   m_Layer: 3
-
   m_Name: SpawnPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +106,6 @@ GameObject:
   m_Layer: 0
   m_Name: Segment_FallingBalls
   m_TagString: Obstacle
-
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +159,6 @@ GameObject:
   - component: {fileID: 5190640364789274378}
   - component: {fileID: 5017057388132808072}
   m_Layer: 3
-
   m_Name: DespawnTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +279,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3575924886104203411}
   m_Layer: 3
-
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +310,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3791658409691460378}
   m_Layer: 3
-
   m_Name: SpawnPoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +408,6 @@ GameObject:
   - component: {fileID: 6204863226056916339}
   - component: {fileID: 316315283332464016}
   m_Layer: 3
-
   m_Name: floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -524,7 +516,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2504102667178485643}
   m_Layer: 3
-
   m_Name: SpawnPoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +547,6 @@ GameObject:
   m_Component:
   - component: {fileID: 831123961327794698}
   m_Layer: 3
-
   m_Name: ExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,38 +1,28 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [Header("State")]
     [SerializeField] private bool gameHasEnded = false;
     [SerializeField] private bool isPaused = false;
-
     public bool IsPaused => isPaused;
 
     [Header("Timing")]
     [SerializeField] private float restartDelay = 1f;
 
     [Header("UI References")]
-    [Tooltip("Panel shown when the level is completed (you already had this).")]
     public GameObject completeLevelUI;
-
-    [Tooltip("Panel shown when the player dies / falls / hits obstacle.")]
     public GameObject gameOverUI;
-
-    [Tooltip("Panel shown when the game is paused.")]
     public GameObject pauseMenuUI;
-
-    [Tooltip("HUD shown during gameplay (score, pause button, etc.).")]
     public GameObject inGameHUD;
 
     [Header("Final Distance")]
-    [Tooltip("Player transform used to read final distance (Z position).")]
     public Transform player;
-
-    [Tooltip("UI Text on the Game Over screen that shows the final distance.")]
     public TextMeshProUGUI finalDistanceText;
+
+    private string lastGameOverReason = "Unknown";
 
     private void Awake()
     {
@@ -42,6 +32,7 @@ public class GameManager : MonoBehaviour
 
         if (gameOverUI) gameOverUI.SetActive(false);
         if (pauseMenuUI) pauseMenuUI.SetActive(false);
+        if (completeLevelUI) completeLevelUI.SetActive(false);
         if (inGameHUD) inGameHUD.SetActive(true);
     }
 
@@ -62,27 +53,40 @@ public class GameManager : MonoBehaviour
     // ----------------------------
     public void EndGame()
     {
+        EndGame("Unknown");
+    }
+
+    public void EndGame(string reason)
+    {
         if (gameHasEnded) return;
         gameHasEnded = true;
 
-        Debug.Log("GAME OVER");
+        lastGameOverReason = string.IsNullOrWhiteSpace(reason) ? "Unknown" : reason;
+
+        // Use Error so Unity shows a stack trace even if Log stack traces are muted.
+        Debug.LogError($"GAME OVER: {lastGameOverReason}", this);
+
+        if (restartDelay <= 0f)
+        {
+            ShowGameOverScreen();
+            return;
+        }
+
         Invoke(nameof(ShowGameOverScreen), restartDelay);
     }
 
     private void ShowGameOverScreen()
     {
-        // Calculate and display final distance
         if (player != null && finalDistanceText != null)
         {
             float finalDistance = player.position.z;
             finalDistanceText.text = $"Final Distance {finalDistance:0} m";
         }
 
-
         if (inGameHUD) inGameHUD.SetActive(false);
         if (gameOverUI) gameOverUI.SetActive(true);
 
-        Time.timeScale = 0f; // freeze everything
+        Time.timeScale = 0f;
     }
 
     // ----------------------------

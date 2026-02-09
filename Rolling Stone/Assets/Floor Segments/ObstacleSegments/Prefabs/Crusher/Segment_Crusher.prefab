@@ -13,7 +13,6 @@ GameObject:
   m_Layer: 0
   m_Name: Segment_Crusher
   m_TagString: Obstacle
-
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +61,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5979969945503149992}
   m_Layer: 3
-
   m_Name: ExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +95,6 @@ GameObject:
   - component: {fileID: 3552023427325157537}
   - component: {fileID: 7307332859552865630}
   m_Layer: 3
-
   m_Name: floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -206,7 +203,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1045513438972495827}
   m_Layer: 3
-
   m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +238,6 @@ GameObject:
   - component: {fileID: 1398856162565419308}
   - component: {fileID: 2077773371808246935}
   m_Layer: 6
-
   m_Name: Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

@@ -13,7 +13,6 @@ GameObject:
   m_Layer: 6
   m_Name: RotatingPivot
   m_TagString: Obstacle
-
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +61,6 @@ GameObject:
   m_Layer: 0
   m_Name: Segment_RotatorV1
   m_TagString: Obstacle
-
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +109,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5987669298118077722}
   m_Layer: 3
-
   m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +140,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5043150246076515381}
   m_Layer: 3
-
   m_Name: ExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +174,6 @@ GameObject:
   - component: {fileID: 4815899125435102130}
   - component: {fileID: 1559849310449822151}
   m_Layer: 6
-
   m_Name: RotatingBar
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -291,7 +286,6 @@ GameObject:
   - component: {fileID: 1124118682953439630}
   - component: {fileID: 7794589498587383757}
   m_Layer: 3
-
   m_Name: floor
   m_TagString: Ground
   m_Icon: {fileID: 0}

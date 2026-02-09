@@ -64,7 +64,7 @@ public class BallMotor : MonoBehaviour
 
         if (rb.position.y < fallYThreshold)
         {
-            if (gameManager) gameManager.EndGame();
+            if (gameManager) gameManager.EndGame($"Fell below threshold (y={rb.position.y:0.00} < {fallYThreshold:0.00})");
             enabled = false;
             return;
         }

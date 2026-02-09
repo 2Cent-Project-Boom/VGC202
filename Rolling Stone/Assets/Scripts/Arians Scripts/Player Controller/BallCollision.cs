@@ -22,23 +22,24 @@ public class BallCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision == null || collision.collider == null) return;
         if (IsInMask(collision.collider))
-            HandleObstacleHit();
+            HandleObstacleHit(collision.collider);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other == null) return;
         if (IsInMask(other))
-            HandleObstacleHit();
+            HandleObstacleHit(other);
     }
 
     private bool IsInMask(Collider col)
     {
-        if (col == null) return false;
         return (obstacleMask.value & (1 << col.gameObject.layer)) != 0;
     }
 
-    private void HandleObstacleHit()
+    private void HandleObstacleHit(Collider hit)
     {
         if (SoundManager.Instance != null)
             SoundManager.Instance.PlayCollisionSFX();
@@ -49,6 +50,9 @@ public class BallCollision : MonoBehaviour
             gameManager = Object.FindFirstObjectByType<GameManager>();
 
         if (gameManager)
-            gameManager.EndGame();
+        {
+            string layerName = LayerMask.LayerToName(hit.gameObject.layer);
+            gameManager.EndGame($"Hit obstacle: {hit.name} (Layer={layerName})");
+        }
     }
 }
